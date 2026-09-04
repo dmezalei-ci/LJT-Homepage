@@ -1,0 +1,10 @@
+{% assign publications = site.publications | sort: "year" | reverse %}
+<ol>
+{% for publication in publications %}
+  <li>
+    <strong>{{ publication.title }}</strong> ({{ publication.year }}).<br>
+    {% if publication.first_author %}First author: Junteng Liu. {% endif %}{{ publication.authors }}.<br>
+    {{ publication.venue }}.{% if publication.code_repository %}<br>{{ publication.code_repository }}.{% endif %}
+  </li>
+{% endfor %}
+</ol>
